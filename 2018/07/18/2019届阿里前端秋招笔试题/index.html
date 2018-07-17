@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="笔试题,Promise," />
 
 
 
@@ -86,13 +86,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="T-ming&#39;s Blog">
-<meta property="og:url" content="https://tissot.github.io/index.html">
+<meta name="description" content="今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。">
+<meta name="keywords" content="笔试题,Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019届阿里前端秋招笔试题">
+<meta property="og:url" content="https://tissot.github.io/2018/07/18/2019届阿里前端秋招笔试题/index.html">
 <meta property="og:site_name" content="T-ming&#39;s Blog">
+<meta property="og:description" content="今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-17T17:36:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="T-ming&#39;s Blog">
+<meta name="twitter:title" content="2019届阿里前端秋招笔试题">
+<meta name="twitter:description" content="今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。">
 
 
 
@@ -122,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://tissot.github.io/"/>
+  <link rel="canonical" href="https://tissot.github.io/2018/07/18/2019届阿里前端秋招笔试题/"/>
 
 
 
 
 
-  <title>T-ming's Blog</title>
+  <title>2019届阿里前端秋招笔试题 | T-ming's Blog</title>
   
 
 
@@ -147,8 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,9 +283,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -311,9 +315,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/18/2019届阿里前端秋招笔试题/" itemprop="url">2019届阿里前端秋招笔试题</a></h2>
+          <h2 class="post-title" itemprop="name headline">2019届阿里前端秋招笔试题</h2>
         
 
         <div class="post-meta">
@@ -407,16 +409,36 @@
       
 
       
-        
-          <p>今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/18/2019届阿里前端秋招笔试题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。</p>
+<a id="more"></a>
+<p>这让我不由得想起春招的时候也做过一次阿里的编程测验，那次是要写一个事件代理。当时在三十分钟内没有写出来，但是编程测验结束后写出来了 233。更为悲催的是，后面还有一个笔试我写了模拟笔试但是忘了正式笔试，最后当然是连面试的机会都没有。</p>
+<p>有了上次测验的经历，我觉得阿里的前端测试题还是具有一定水准的——不会太难但也不简单，因此我还是对这次的测验抱有很大的期待。怀着这种期待，我点开了编程测试的链接，题目如下：</p>
+<ul>
+<li>实现 mergePromise 函数，把传进去的数组按顺序先后执行，并且把返回的数据先后放到数组（data）中。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> timeout = <span class="function"><span class="params">ms</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		resolve();</span><br><span class="line">	&#125;, ms);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ajax1 = <span class="function"><span class="params">()</span> =&gt;</span> timeout(<span class="number">2000</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'1'</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ajax2 = <span class="function"><span class="params">()</span> =&gt;</span> timeout(<span class="number">1000</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'2'</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ajax3 = <span class="function"><span class="params">()</span> =&gt;</span> timeout(<span class="number">2000</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'3'</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mergePromise = <span class="function"><span class="params">ajaxArray</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 在这里实现你的代码</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">mergePromise([ajax1, ajax2, ajax3]).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'done'</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(data); <span class="comment">// data 为 [1, 2, 3]</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">[ 1, 2, 3 ]</span><br></pre></td></tr></table></figure>
+<p>这道题目给我的第一印象是用 <code>Promise.all</code> 来解决：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mergePromise = <span class="function"><span class="params">ajaxArray</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 在这里实现你的代码</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.all(ajaxArray.map(<span class="function"><span class="params">ajax</span> =&gt;</span> ajax()));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>然而他的题目要求 <code>把传进去的按数组顺序先后执行</code>，但 <code>Promise.all</code> 是并发执行传入的数组，该代码输出的结果与题目要求不符合：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">[ 1, 2, 3 ]</span><br></pre></td></tr></table></figure>
+<p>既然第一印象是错的，那就只能进行详细的逻辑推理了。让我们来分析一下 <code>mergePromise</code> 函数在接受参数为 <code>[ajax1, ajax2, ajax3]</code> 数组时的行为：</p>
+<ol>
+<li>ajax 的回调函数虽然是异步的，但 <code>mergePromise</code> 确保了执行顺序为 ajax1 -&gt; ajax2 -&gt; ajax3，并且每次在 ajax 执行完之后都会将其 Promise 对象的值 push 进数组中。</li>
+<li>等到所有 ajax 执行完之后，将第一步中的数组返回。</li>
+</ol>
+<p>这时有如下思路：</p>
+<ol>
+<li>我们不妨先创造一个新的 Promise 对象 <code>p</code>，用 <code>p</code> 的 <code>then</code> 方法来确保执行顺序为 <code>ajax1 -&gt; ajax2 -&gt; ajax3</code>，同时在每个 ajax 执行完之后将其 Promise 对象的值 push 进一个数组 <code>result</code>。</li>
+<li>等到所有 ajax 执行完之后再把 <code>p</code> 的值设为 <code>result</code>， 最后再返回 <code>p</code> 即可。</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mergePromise = <span class="function"><span class="params">ajaxArray</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 在这里实现你的代码</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> p = <span class="built_in">Promise</span>.resolve();</span><br><span class="line"></span><br><span class="line">  ajaxArray.forEach(<span class="function"><span class="params">ajax</span> =&gt;</span> p = p.then(ajax).then(<span class="function"><span class="params">val</span> =&gt;</span> result.push(val)));</span><br><span class="line"></span><br><span class="line">  p = p.then(<span class="function"><span class="params">()</span> =&gt;</span> result);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>写出上述代码，该编程题其实就算是完成了，但我仍然不满足，想要对其进行进一步简化，经验告诉我用 <code>reduce</code> 是个不错的选择，于是有下列代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mergePromise = <span class="function"><span class="params">ajaxArray</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 在这里实现你的代码</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ajaxArray.reduce(</span><br><span class="line">    (promise, ajax) =&gt; promise.then(ajax).then(<span class="function"><span class="params">val</span> =&gt;</span> result.push(val))</span><br><span class="line">  , <span class="built_in">Promise</span>.resolve()).then(<span class="function"><span class="params">()</span> =&gt;</span> result);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>至此，这道笔试题就我现在的技术水平而言算是圆满解决了。</p>
+
       
     </div>
     
@@ -428,17 +450,43 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    T-ming
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tissot.github.io/2018/07/18/2019届阿里前端秋招笔试题/" title="2019届阿里前端秋招笔试题">https://tissot.github.io/2018/07/18/2019届阿里前端秋招笔试题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">署名-非商业性使用-相同方式共享 (CC BY-NC-SA 4.0)</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/笔试题/" rel="tag"># 笔试题</a>
+          
+            <a href="/tags/Promise/" rel="tag"># Promise</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -448,10 +496,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -459,6 +508,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM3Ny8xMzkxMQ"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -694,6 +752,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -722,6 +784,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
