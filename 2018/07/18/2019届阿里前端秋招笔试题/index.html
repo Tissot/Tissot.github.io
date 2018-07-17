@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="T-ming&#39;s Blog">
 <meta property="og:description" content="今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T17:36:31.000Z">
+<meta property="og:updated_time" content="2018-07-17T17:41:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019届阿里前端秋招笔试题">
 <meta name="twitter:description" content="今天完成阿里的内推之后收到邮件，让我进行一个编程测验，时间为三十分钟。">
@@ -421,7 +421,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">[ 1, 2, 3 ]</span><br></pre></td></tr></table></figure>
 <p>这道题目给我的第一印象是用 <code>Promise.all</code> 来解决：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mergePromise = <span class="function"><span class="params">ajaxArray</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 在这里实现你的代码</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.all(ajaxArray.map(<span class="function"><span class="params">ajax</span> =&gt;</span> ajax()));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>然而他的题目要求 <code>把传进去的按数组顺序先后执行</code>，但 <code>Promise.all</code> 是并发执行传入的数组，该代码输出的结果与题目要求不符合：</p>
+<p>然而他的题目要求“把传进去的按数组顺序先后执行”，但 <code>Promise.all</code> 是并发执行传入的数组，该代码输出的结果与题目要求不符合：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">[ 1, 2, 3 ]</span><br></pre></td></tr></table></figure>
 <p>既然第一印象是错的，那就只能进行详细的逻辑推理了。让我们来分析一下 <code>mergePromise</code> 函数在接受参数为 <code>[ajax1, ajax2, ajax3]</code> 数组时的行为：</p>
 <ol>
@@ -430,7 +430,7 @@
 </ol>
 <p>这时有如下思路：</p>
 <ol>
-<li>我们不妨先创造一个新的 Promise 对象 <code>p</code>，用 <code>p</code> 的 <code>then</code> 方法来确保执行顺序为 <code>ajax1 -&gt; ajax2 -&gt; ajax3</code>，同时在每个 ajax 执行完之后将其 Promise 对象的值 push 进一个数组 <code>result</code>。</li>
+<li>我们不妨先创造一个新的 Promise 对象 <code>p</code>，用 <code>p</code> 的 <code>then</code> 方法来确保执行顺序为 ajax1 -&gt; ajax2 -&gt; ajax3，同时在每个 ajax 执行完之后将其 Promise 对象的值 push 进一个数组 <code>result</code>。</li>
 <li>等到所有 ajax 执行完之后再把 <code>p</code> 的值设为 <code>result</code>， 最后再返回 <code>p</code> 即可。</li>
 </ol>
 <p>代码如下：</p>
